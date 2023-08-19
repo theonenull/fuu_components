@@ -56,7 +56,7 @@ afterEvaluate {
                 from(components["release"])
                 groupId = "com.github.theonenull"
                 artifactId = "fuu_components"
-                version = "0.0.1"
+                version = "0.0.3"
             }
         }
     }
