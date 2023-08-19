@@ -50,8 +50,8 @@ afterEvaluate {
             create<MavenPublication>("release") {
                 from(components["release"])
                 groupId = "com.github.theonenull"
-                artifactId = "kenyan-counties"
-                version = "1.0.0"
+                artifactId = "fuu_components"
+                version = "0.0.0"
             }
         }
     }
