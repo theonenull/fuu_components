@@ -1,8 +1,12 @@
+import org.gradle.api.internal.artifacts.mvnsettings.LocalMavenRepositoryLocator
+
 pluginManagement {
     repositories {
         google()
         mavenCentral()
         gradlePluginPortal()
+        mavenLocal()
+        maven("https://jitpack.io" )
     }
 }
 dependencyResolutionManagement {
@@ -10,6 +14,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        mavenLocal()
+        maven("https://jitpack.io" )
     }
 }
 

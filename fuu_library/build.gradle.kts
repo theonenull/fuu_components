@@ -44,15 +44,39 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
 }
 
-afterEvaluate {
-    publishing {
-        publications {
-            create<MavenPublication>("release") {
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            create<MavenPublication>("release") {
+//                from(components["release"])
+//                groupId = "com.github.theonenull"
+//                artifactId = "fuu_components"
+//                version = "0.0.1"
+//            }
+//        }
+//    }
+//}
+////
+publishing {
+    publications {
+        register<MavenPublication>("publishReleasePublicationToMyrepoRepository") {
+            groupId = "com.github.theonenull"
+            artifactId = "fuu_components"
+            version = "0.0.1"
+
+            afterEvaluate {
                 from(components["release"])
-                groupId = "com.github.theonenull"
-                artifactId = "fuu_components"
-                version = "0.0.0"
             }
         }
     }
 }
+
+tasks.register<Zip>("generateRepo") {
+    val publishTask = tasks.named(
+        "publishReleasePublicationToMyrepoRepository",
+        PublishToMavenRepository::class.java)
+    from(publishTask.map { it.repository.url })
+    into("mylibrary")
+    archiveFileName.set("mylibrary.zip")
+}
+
