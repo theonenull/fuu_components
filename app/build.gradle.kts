@@ -63,5 +63,5 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
-//    implementation("com.github.theonenull:fuu_components:0.0.1")
+    implementation(project(":fuu_library"))
 }
